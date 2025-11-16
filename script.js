@@ -1,7 +1,7 @@
 const products = [
-    { id: 1, name: "Product A", price: 300, },
-    { id: 2, name: "Product B", price: 450, },
-    { id: 3, name: "Product C", price: 150,  }
+    { id: 1, name: "Product A", price: 300,image: "./1.jpg" },
+    { id: 2, name: "Product B", price: 450, image:"./2.jpeg" },
+    { id: 3, name: "Product C", price: 150, image:"./3.jpeg" }
 ];
 
 let cart = {};
@@ -48,21 +48,25 @@ function updateCart() {
         itemDiv.className = "cart-item";
 
         itemDiv.innerHTML = `
-        <div class="item-row">
-            <div>
-                <h4>${item.name}</h4>
-                <p>₹${item.price}</p>
-            </div>
-            <button class="remove-btn" onclick="removeItem(${item.id})">❌</button>
-        </div>
+            <div class="cart-item-row">
+                <img src="${item.image}" class="cart-thumb">
+        
+                <div class="cart-info">
+                    <h4>${item.name}</h4>
+                    <p>₹${item.price}</p>
 
-        <div>
-            <button class="qty-btn" onclick="changeQty(${item.id}, -1)">-</button>
-            ${item.qty}
-            <button class="qty-btn" onclick="changeQty(${item.id}, 1)">+</button>
-        </div>
-        <hr>
-    `;
+                    <div class="qty-controls">
+                        <button class="qty-btn" onclick="changeQty(${item.id}, -1)">-</button>
+                        ${item.qty}
+                        <button class="qty-btn" onclick="changeQty(${item.id}, 1)">+</button>
+                    </div>
+                </div>
+
+                <button class="remove-btn" onclick="removeItem(${item.id})">❌</button>
+            </div>
+            <hr>
+        `;
+
 
         cartItemsDiv.appendChild(itemDiv);
     });
