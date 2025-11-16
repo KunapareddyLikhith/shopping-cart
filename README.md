@@ -32,7 +32,8 @@ JavaScript (No frameworks, fully modular)
 
 📸 Screenshots
 
-![Screenshot 2025-11-16 173647](https://github.com/user-attachments/assets/3576e0e6-ad86-4a7f-a18e-76d93f269a40)
+<img width="1366" height="768" alt="Screenshot 2025-11-16 174716" src="https://github.com/user-attachments/assets/1743c2e1-7324-4808-849a-325ba6a37646" />
+
 
 
 
