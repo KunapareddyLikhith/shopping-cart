@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Shopping Cart</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>
+    <h1>ShopMore</h1>
+    <div class="cart-header">
+        🛒 Cart: <span id="cart-count">0</span>
+    </div>
+</header>
+
+<main>
+    <section class="products">
+        <h2>Products</h2>
+        <div id="product-list"></div>
+    </section>
+
+    <section class="cart">
+        <h2>Your Cart</h2>
+        <div id="cart-items"></div>
+
+        <div class="cart-summary">
+            <p>Subtotal: ₹<span id="subtotal">0</span></p>
+            <p>Shipping: ₹<span id="shipping">0</span></p>
+            <h3>Total: ₹<span id="total">0</span></h3>
+            <button id="checkout-btn">Checkout</button>
+        </div>
+    </section>
+</main>
+
+<script src="script.js"></script>
+</body>
+</html>
