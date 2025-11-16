@@ -1,7 +1,7 @@
 const products = [
-    { id: 1, name: "Product A", price: 300 },
-    { id: 2, name: "Product B", price: 450 },
-    { id: 3, name: "Product C", price: 150 }
+    { id: 1, name: "Product A", price: 300, },
+    { id: 2, name: "Product B", price: 450, },
+    { id: 3, name: "Product C", price: 150,  }
 ];
 
 let cart = {};
@@ -11,11 +11,13 @@ products.forEach(product => {
     const card = document.createElement("div");
     card.className = "product-card";
 
-    card.innerHTML = `
+    card.innerHTML =`
+        <img src="${product.image}" class="product-img" />
         <h3>${product.name}</h3>
         <p>₹${product.price}</p>
         <button onclick="addToCart(${product.id})">Add to Cart</button>
     `;
+
 
     productList.appendChild(card);
 });
@@ -31,6 +33,9 @@ function addToCart(id) {
 }
 
 function updateCart() {
+    const emptyMsg = document.getElementById("empty-cart");
+    emptyMsg.style.display = Object.keys(cart).length === 0 ? "block" : "none";
+
     const cartItemsDiv = document.getElementById("cart-items");
     cartItemsDiv.innerHTML = "";
 
@@ -43,15 +48,21 @@ function updateCart() {
         itemDiv.className = "cart-item";
 
         itemDiv.innerHTML = `
-            <h4>${item.name}</h4>
-            <p>₹${item.price}</p>
+        <div class="item-row">
             <div>
-                <button class="qty-btn" onclick="changeQty(${item.id}, -1)">-</button>
-                ${item.qty}
-                <button class="qty-btn" onclick="changeQty(${item.id}, 1)">+</button>
+                <h4>${item.name}</h4>
+                <p>₹${item.price}</p>
             </div>
-            <hr>
-        `;
+            <button class="remove-btn" onclick="removeItem(${item.id})">❌</button>
+        </div>
+
+        <div>
+            <button class="qty-btn" onclick="changeQty(${item.id}, -1)">-</button>
+            ${item.qty}
+            <button class="qty-btn" onclick="changeQty(${item.id}, 1)">+</button>
+        </div>
+        <hr>
+    `;
 
         cartItemsDiv.appendChild(itemDiv);
     });
@@ -76,3 +87,20 @@ function changeQty(id, change) {
 
     updateCart();
 }
+
+function removeItem(id) {
+    delete cart[id];
+    updateCart();
+}
+
+document.getElementById("checkout-btn").addEventListener("click", () => {
+    document.getElementById("popup").style.display = "flex";
+});
+
+function closePopup() {
+    document.getElementById("popup").style.display = "none";
+}
+
+
+
+
