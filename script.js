@@ -1,7 +1,7 @@
 const products = [
-    { id: 1, name: "Product A", price: 300,image: "./1.jpg" },
-    { id: 2, name: "Product B", price: 450, image:"./2.jpeg" },
-    { id: 3, name: "Product C", price: 150, image:"./3.jpeg" }
+    { id: 1, name: "Product A", price: 300, image: "./1.jpg" },
+    { id: 2, name: "Product B", price: 450, image: "./2.jpeg" },
+    { id: 3, name: "Product C", price: 150, image: "./3.jpeg" }
 ];
 
 let cart = {};
@@ -11,13 +11,12 @@ products.forEach(product => {
     const card = document.createElement("div");
     card.className = "product-card";
 
-    card.innerHTML =`
+    card.innerHTML = `
         <img src="${product.image}" class="product-img" />
         <h3>${product.name}</h3>
         <p>₹${product.price}</p>
         <button onclick="addToCart(${product.id})">Add to Cart</button>
     `;
-
 
     productList.appendChild(card);
 });
@@ -50,7 +49,7 @@ function updateCart() {
         itemDiv.innerHTML = `
             <div class="cart-item-row">
                 <img src="${item.image}" class="cart-thumb">
-        
+
                 <div class="cart-info">
                     <h4>${item.name}</h4>
                     <p>₹${item.price}</p>
@@ -66,7 +65,6 @@ function updateCart() {
             </div>
             <hr>
         `;
-
 
         cartItemsDiv.appendChild(itemDiv);
     });
@@ -104,7 +102,3 @@ document.getElementById("checkout-btn").addEventListener("click", () => {
 function closePopup() {
     document.getElementById("popup").style.display = "none";
 }
-
-
-
-
